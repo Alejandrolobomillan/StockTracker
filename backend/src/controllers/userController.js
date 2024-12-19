@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 // Registrar un usuario
 const registerUser = async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password} = req.body;
 
   try {
     // Verificar si el email ya está registrado
@@ -20,7 +20,6 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role,
     });
 
     res.status(201).json({ message: 'Usuario registrado con éxito', user });
