@@ -1,11 +1,9 @@
-/* General styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Navbar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -65,7 +63,6 @@ body {
     line-height: 1.6;
 }
 
-/* Content1 styles */
 .content1 {
     display: flex;
     flex-wrap: wrap;
@@ -170,7 +167,6 @@ body {
     color: #ffffff;
 }
 
-/* Footer styles */
 .footer {
     background-color: #000000;
     color: white;
@@ -188,7 +184,6 @@ body {
     margin: 0.5rem 0;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
     .navbar-links {
         flex-direction: column;

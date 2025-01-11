@@ -1,7 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
-const alphaRoutes = require('./routes/alphaRoutes'); 
 const dotenv = require('dotenv');
 
 // Configurar variables de entorno
@@ -22,7 +21,6 @@ connectDB();
 
 // Rutas
 app.use('/api/users', userRoutes); 
-app.use('/api/alpha', alphaRoutes); 
 
 // Ruta de prueba
 app.get('/', (req, res) => {
