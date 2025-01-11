@@ -1,0 +1,58 @@
+/* Start.css */
+.start-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #272727; 
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.start-content {
+    width: 100%;
+    max-width: 800px;
+    background-color: #333333;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.start-content p {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.start-content ul {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    color: #ffffff;
+}
+
+.start-content li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    padding: 3%;
+}
+
+.start-content span {
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #78aee7;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.start-content span:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+

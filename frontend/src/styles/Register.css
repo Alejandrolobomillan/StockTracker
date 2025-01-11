@@ -1,42 +1,61 @@
+/* Register.css */
 .register-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #272727; 
 }
 
-.register-container h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white; 
 }
 
-.register-container input {
-    width: 80%;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; 
+    background-color: #333333; 
+    padding: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+input {
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    background-color: #444444; 
+    color: white; 
+    font-size: 1rem; 
+    width: 95%; 
 }
 
-.register-container button {
-    width: 60%;
+input::placeholder {
+    color: #bbb; 
+}
+
+button {
     padding: 10px;
-    margin-top: 20px;
     border: none;
-    border-radius: 4px;
-    background-color: #000000;
+    background-color: #a7a7a7; 
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
-.register-container button:hover {
-    background-color: #b6b6b6;
+button:hover {
+    background-color: #777777; 
 }
+
+.register-container p {
+    margin-top: 20px;
+    font-size: 0.8rem; 
+    color: #ffffff;
+    text-align: center; 
+}
+

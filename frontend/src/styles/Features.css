@@ -1,0 +1,38 @@
+/* Features.css */
+.features-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #272727;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.features-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #333333;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.features-container h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.features-container p {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
