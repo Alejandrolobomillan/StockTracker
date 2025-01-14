@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const stockRoutes = require('./routes/stockRoutes');
 const dotenv = require('dotenv');
 
 // Configurar variables de entorno
@@ -21,6 +22,7 @@ connectDB();
 
 // Rutas
 app.use('/api/users', userRoutes); 
+app.use('/api/stocks', stockRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {
