@@ -4,17 +4,17 @@ import '../styles/Wallet.css';
 
 const Wallet = () => {
     const navigate = useNavigate();
-    const [userStocks, setUserStocks] = useState([]); 
-    const [totalBalance, setTotalBalance] = useState(0); 
-    const [loading, setLoading] = useState(true); 
+    const [userStocks, setUserStocks] = useState([]);
+    const [totalBalance, setTotalBalance] = useState(0);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const token = localStorage.getItem('token'); // Cache token
 
     const fetchUserProfile = async () => {
         try {
             const response = await fetch('http://localhost:5000/api/users/profile', {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` 
-                }
+                headers: { Authorization: `Bearer ${token}` },
             });
 
             if (!response.ok) {
@@ -22,11 +22,11 @@ const Wallet = () => {
             }
 
             const data = await response.json();
-            setTotalBalance(data.balance || 0); 
+            setTotalBalance(data.balance || 0);
             setUserStocks(data.stocks || []);
         } catch (error) {
-            console.error('Error:', error);
-            setError(error.message);
+            console.error('Error fetching profile:', error);
+            setError('No se pudo cargar el perfil del usuario. Intente nuevamente más tarde.');
         } finally {
             setLoading(false);
         }
@@ -35,55 +35,45 @@ const Wallet = () => {
     const fetchStockPrice = async (stockId) => {
         try {
             const response = await fetch(`http://localhost:5000/api/stocks/${stockId}`, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
+                headers: { Authorization: `Bearer ${token}` },
             });
 
             if (!response.ok) {
-                throw new Error('Error al obtener el precio de la acción');
+                throw new Error(`Error fetching stock price for stockId: ${stockId}`);
             }
 
             const data = await response.json();
-            return data.currentPrice; 
+            return data.currentPrice;
         } catch (error) {
-            console.error('Error al obtener el precio de la acción:', error);
-            return null; 
+            console.error(`Error fetching stock price for ${stockId}:`, error);
+            return null;
         }
     };
 
     useEffect(() => {
-        const updateData = async () => {
-            const updatedStocks = await Promise.all(userStocks.map(async (stock) => {
-                const currentPrice = await fetchStockPrice(stock.stockId); 
-                return { ...stock, currentPrice }; 
-            }));
+        const updateStockPrices = async () => {
+            try {
+                const updatedStocks = await Promise.all(
+                    userStocks.map(async (stock) => {
+                        const currentPrice = await fetchStockPrice(stock.stockId);
+                        return { ...stock, currentPrice };
+                    })
+                );
 
-            setUserStocks(updatedStocks);
-
-            const profileResponse = await fetch('http://localhost:5000/api/users/profile', {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-
-            if (profileResponse.ok) {
-                const profileData = await profileResponse.json();
-                setTotalBalance(profileData.balance || 0); 
-            } else {
-                console.error('Error al obtener el balance del usuario');
+                setUserStocks(updatedStocks);
+            } catch (error) {
+                console.error('Error updating stock prices:', error);
             }
         };
 
-        const interval = setInterval(updateData, 10000); 
-
-        updateData();
+        const interval = setInterval(updateStockPrices, 10000);
+        updateStockPrices();
 
         return () => clearInterval(interval);
-    }, [userStocks]); 
+    }, [userStocks]);
 
     useEffect(() => {
-        fetchUserProfile(); 
+        fetchUserProfile();
     }, []);
 
     return (
@@ -104,11 +94,11 @@ const Wallet = () => {
                     {loading ? (
                         <p>Cargando...</p>
                     ) : error ? (
-                        <p>{error}</p> 
+                        <p>{error}</p>
                     ) : (
                         <>
                             <div className="wallet-balance">
-                                <h3>Saldo Total: ${totalBalance.toFixed(2)}</h3>
+                                <h3>Saldo Efectivo: ${totalBalance.toFixed(2)}</h3>
                             </div>
                             <table className="wallet-table">
                                 <thead>
@@ -122,7 +112,6 @@ const Wallet = () => {
                                 </thead>
                                 <tbody>
                                     {userStocks.map((stock) => {
-                                        
                                         const totalValue = stock.currentPrice ? stock.quantity * stock.currentPrice : 0;
 
                                         return (
@@ -130,9 +119,14 @@ const Wallet = () => {
                                                 <td>{stock.tickerSymbol}</td>
                                                 <td>{stock.companyName}</td>
                                                 <td>{stock.quantity}</td>
-                                                <td>{stock.currentPrice ? `$${stock.currentPrice.toFixed(2)}` : 'Cargando...'}</td>
-                                               
-                                                <td>{totalValue ? `$${totalValue.toFixed(2)}` : 'Cargando...'}</td>
+                                                <td>
+                                                    {stock.currentPrice
+                                                        ? `$${stock.currentPrice.toFixed(2)}`
+                                                        : 'Cargando...'}
+                                                </td>
+                                                <td>
+                                                    {totalValue ? `$${totalValue.toFixed(2)}` : 'Cargando...'}
+                                                </td>
                                             </tr>
                                         );
                                     })}

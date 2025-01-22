@@ -202,4 +202,8 @@ body {
     .background-title {
         font-size: 3rem;
     }
+
+    .text-container h2 {
+        font-size: 1.5rem;
+    }
 }
