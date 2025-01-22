@@ -12,41 +12,41 @@ const Start = () => {
                 <img src="/logodentro.jpg" alt="Logo" className="navbar-logo" />
             </div>
             <ul className="navbar-links">
-                    <li onClick={() => navigate('/start')}>Com Iniciar</li>
-                    <li onClick={() => navigate('/features')}>Característiques</li>
+                    <li onClick={() => navigate('/start')}>Cómo Iniciar</li>
+                    <li onClick={() => navigate('/features')}>Características</li>
 
-                    <li onClick={() => navigate('/about')}>Sobre Nosaltres</li>
+                    <li onClick={() => navigate('/about')}>Sobre Nosotros</li>
             </ul>
         </nav>
         <section className="start-section">
-        <h1>Comença a Invertir en Accions</h1>
+        <h1>Comienza a Invertir en Acciones</h1>
             <div className="start-content">
                 <p>
-                    Invertir en accions pot semblar intimidatori al principi, però amb els passos adequats i una bona planificació, és més senzill del que imagines. Aquí tens una guia ràpida per començar:
+                    Invertir en acciones puede parecer intimidante al principio, pero con los pasos adecuados y una buena planificación, es más sencillo de lo que imaginas. Aquí tienes una guía rápida para comenzar:
                 </p>
                 <ul>
                     <li>
-                        <strong>1. Educa't sobre el mercat:</strong> Abans d'invertir, és essencial entendre com funciona el mercat de valors. Investiga sobre termes com "accions", "dividends" i "riscos d'inversió". 
+                        <strong>1. Edúcate sobre el mercado:</strong> Antes de invertir, es esencial entender cómo funciona el mercado de valores. Investiga sobre términos como "acciones", "dividendos" y "riesgos de inversión".
                     </li>
                     <li>
-                        <strong>2. Estableix els teus objectius:</strong> Defineix si vols guanys a curt termini o estalviar per al futur. Els teus objectius determinaran les teves estratègies d'inversió.
+                        <strong>2. Establece tus objetivos:</strong> Define si quieres ganancias a corto plazo o ahorrar para el futuro. Tus objetivos determinarán tus estrategias de inversión.
                     </li>
                     <li>
-                        <strong>3. Obre un compte de corredoria:</strong> Registra't en una plataforma que ofereixi eines per comprar i vendre accions fàcilment. 
-                        Pots començar ara mateix a través de <span onClick={() => navigate('/register')}>Registrar-se</span>.
+                        <strong>3. Abre una cuenta de corretaje:</strong> Regístrate en una plataforma que ofrezca herramientas para comprar y vender acciones fácilmente. 
+                        Puedes empezar ahora mismo a través de <span onClick={() => navigate('/register')}>Registrarse</span>.
                     </li>
                     <li>
-                        <strong>4. Comença petit:</strong> No cal començar amb grans quantitats. Inverteix només allò que estiguis disposat a perdre mentre guanyes experiència.
+                        <strong>4. Comienza pequeño:</strong> No es necesario comenzar con grandes cantidades. Invierte solo lo que estés dispuesto a perder mientras adquieres experiencia.
                     </li>
                     <li>
-                        <strong>5. Diversifica la teva cartera:</strong> No posis tots els teus diners en una sola empresa. Inverteix en diverses accions per reduir riscos.
+                        <strong>5. Diversifica tu cartera:</strong> No pongas todo tu dinero en una sola empresa. Invierte en varias acciones para reducir riesgos.
                     </li>
                     <li>
-                        <strong>6. Monitoritza i ajusta:</strong> Fes un seguiment regular del rendiment de les teves inversions i ajusta la teva estratègia segons calgui.
+                        <strong>6. Monitorea y ajusta:</strong> Haz un seguimiento regular del rendimiento de tus inversiones y ajusta tu estrategia según sea necesario.
                     </li>
                 </ul>
                 <p>
-                    A StockTracker, oferim eines senzilles i intuïtives per ajudar-te en cada pas del teu viatge d'inversió. <span onClick={() => navigate('/register')} >Comença avui mateix</span> i pren el control del teu futur financer!
+                    En StockTracker, ofrecemos herramientas sencillas e intuitivas para ayudarte en cada paso de tu viaje de inversión. <span onClick={() => navigate('/register')}>¡Comienza hoy mismo</span> y toma el control de tu futuro financiero!
                 </p>
             </div>
         </section>

@@ -1,0 +1,317 @@
+openapi: 3.0.3
+
+info:
+  title: StockTracker API
+  description: API para gestionar usuarios y acciones en StockTracker.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000
+
+tags:
+  - name: user
+    description: Operaciones relacionadas con usuarios
+  - name: stock
+    description: Operaciones relacionadas con acciones
+
+paths:
+  /api/users/register:
+    post:
+      tags:
+        - user
+      summary: Registrar un nuevo usuario
+      requestBody:
+        description: Datos del usuario a registrar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Usuario registrado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Error al registrar usuario
+
+  /api/users/login:
+    post:
+      tags:
+        - user
+      summary: Iniciar sesión de usuario
+      requestBody:
+        description: Credenciales del usuario
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: Inicio de sesión exitoso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Credenciales inválidas
+
+  /api/users/profile:
+    get:
+      tags:
+        - user
+      summary: Obtener perfil del usuario autenticado
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Perfil del usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: No autorizado
+
+  /api/users/buyStock:
+    post:
+      tags:
+        - user
+      summary: Comprar acciones
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Datos de la compra de acciones
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuySellStock'
+      responses:
+        '200':
+          description: Acciones compradas exitosamente
+        '400':
+          description: Error al comprar acciones
+        '401':
+          description: No autorizado
+
+  /api/users/sellStock:
+    post:
+      tags:
+        - user
+      summary: Vender acciones
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Datos de la venta de acciones
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuySellStock'
+      responses:
+        '200':
+          description: Acciones vendidas exitosamente
+        '400':
+          description: Error al vender acciones
+        '401':
+          description: No autorizado
+
+  /api/stocks:
+    get:
+      tags:
+        - stock
+      summary: Obtener todas las acciones
+      responses:
+        '200':
+          description: Lista de acciones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stock'
+        '500':
+          description: Error al obtener las acciones
+
+    post:
+      tags:
+        - stock
+      summary: Crear una nueva acción
+      requestBody:
+        description: Datos de la nueva acción
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stock'
+      responses:
+        '201':
+          description: Acción creada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+        '400':
+          description: Error al crear la acción
+
+  /api/stocks/{id}:
+    get:
+      tags:
+        - stock
+      summary: Obtener una acción por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Acción encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+        '404':
+          description: Acción no encontrada
+        '500':
+          description: Error al obtener la acción
+
+    put:
+      tags:
+        - stock
+      summary: Actualizar una acción existente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Datos de la acción a actualizar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stock'
+      responses:
+        '200':
+          description: Acción actualizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+        '400':
+          description: Error al actualizar la acción
+        '404':
+          description: Acción no encontrada
+
+    delete:
+      tags:
+        - stock
+      summary: Eliminar una acción por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Acción eliminada exitosamente
+        '404':
+          description: Acción no encontrada
+        '500':
+          description: Error al eliminar la acción
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        balance:
+          type: number
+        stocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserStock'
+
+    UserStock:
+      type: object
+      properties:
+        stockId:
+          type: string
+        tickerSymbol:
+          type: string
+        companyName:
+          type: string
+        quantity:
+          type: number
+
+    UserResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+    LoginResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        token:
+          type: string
+
+    BuySellStock:
+      type: object
+      properties:
+        stockId:
+          type: string
+        quantity:
+          type: number
+
+    Stock:
+      type: object
+      properties:
+        tickerSymbol:
+          type: string
+        companyName:
+          type: string
+        sector:
+          type: string
+        currentPrice:
+          type: number
+        volume:
+          type: number
+        marketCap:
+          type: number
+        availableShares:
+          type: number
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

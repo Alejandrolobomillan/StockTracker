@@ -17,38 +17,39 @@ const Login = () => {
                 body: JSON.stringify({ email, password }),
             });
             const data = await response.json();
-
+    
             if (!response.ok) {
-                throw new Error(data.message || 'Error al iniciar sessió');
+                throw new Error(data.message || 'Error al iniciar sesión');
             }
-
+    
+            localStorage.setItem('token', data.token);
             navigate('/home');
-
+    
         } catch (err) {
             setError(err.message);
         }
-    };
+    };    
 
     return (
         <div className="login-container">
-            <h1>Iniciar Sessió</h1>
+            <h1>Iniciar Sesión</h1>
             <form onSubmit={handleLogin}>
                 <input
                     type="email"
-                    placeholder="Correu Electrònic"
+                    placeholder="Correo Electrónico"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="password"
-                    placeholder="Contrasenya"
+                    placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Iniciar Sessió</button>
+                <button type="submit">Iniciar Sesión</button>
             </form>
             <div>
-                <p>No tens un compte? <span onClick={() => navigate('/register')}>Registra't</span></p>
+                <p>No tienes una cuenta? <span onClick={() => navigate('/register')}>Regístrate</span></p>
             </div>
             {error && <p className="error-message">{error}</p>} 
         </div>

@@ -12,33 +12,33 @@ const Features = () => {
                 <img src="/logodentro.jpg" alt="Logo" className="navbar-logo" />
             </div>
             <ul className="navbar-links">
-                <li onClick={() => navigate('/start')}>Com Iniciar</li>
-                <li onClick={() => navigate('/features')}>Característiques</li>
-                <li onClick={() => navigate('/about')}>Sobre Nosaltres</li>
+                <li onClick={() => navigate('/start')}>Cómo Iniciar</li>
+                <li onClick={() => navigate('/features')}>Características</li>
+                <li onClick={() => navigate('/about')}>Sobre Nosotros</li>
             </ul>
         </nav>
         <section className="features-section">
-            <h1>Característiques de l'Aplicació</h1>
+            <h1>Características de la Aplicación</h1>
             <div className="features-container">
                 <div className="feature-item">
-                    <h2>Seguiment en Temps Real</h2>
-                    <p>Pots veure el rendiment dels teus estocs en temps real i rebre actualitzacions instantànies.</p>
+                    <h2>Seguimiento en Tiempo Real</h2>
+                    <p>Puedes ver el rendimiento de tus acciones en tiempo real y recibir actualizaciones instantáneas.</p>
                 </div>
                 <div className="feature-item">
-                    <h2>Alertes Personalitzades</h2>
-                    <p>Configura alertes perquè et notifiquem quan els teus estocs arribin a nivells crítics o s'actualitzin.</p>
+                    <h2>Alertas Personalizadas</h2>
+                    <p>Configura alertas para que te notifiquemos cuando tus acciones lleguen a niveles críticos o se actualicen.</p>
                 </div>
                 <div className="feature-item">
-                    <h2>Interfície Intuïtiva</h2>
-                    <p>Una interfície fàcil d’utilitzar perquè puguis gestionar les teves accions sense complicacions.</p>
+                    <h2>Interfaz Intuitiva</h2>
+                    <p>Una interfaz fácil de usar para que puedas gestionar tus acciones sin complicaciones.</p>
                 </div>
                 <div className="feature-item">
-                    <h2>Gràfics i Anàlisis</h2>
-                    <p>Accedeix a gràfics i eines d'anàlisi per obtenir una millor visibilitat del teu rendiment.</p>
+                    <h2>Gráficos y Análisis</h2>
+                    <p>Accede a gráficos y herramientas de análisis para obtener una mejor visibilidad de tu rendimiento.</p>
                 </div>
                 <div className="feature-item">
-                    <h2>Accés Multidispositiu</h2>
-                    <p>Accedeix a la teva informació des de qualsevol dispositiu, en qualsevol moment.</p>
+                    <h2>Acceso Multidispositivo</h2>
+                    <p>Accede a tu información desde cualquier dispositivo, en cualquier momento.</p>
                 </div>
             </div>
         </section>

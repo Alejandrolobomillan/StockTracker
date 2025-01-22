@@ -1,24 +1,44 @@
 const mongoose = require('mongoose');
 
-// Esquema del Usuario
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'El nombre es obligatorio'],
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: [true, 'El email es obligatorio'],
-    unique: true,
-    trim: true,
-    lowercase: true,
-  },
-  password: {
-    type: String,
-    required: [true, 'La contraseña es obligatoria'],
-    minlength: [6, 'La contraseña debe tener al menos 6 caracteres'],
-  },
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    balance: {
+        type: Number,
+        required: true,  
+    },
+    stocks: [{
+        stockId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Stock', 
+        },
+        tickerSymbol: {
+            type: String,
+            required: true,
+        },
+        companyName: {
+            type: String,
+            required: true,
+        },
+        quantity: {
+            type: Number,
+            default: 0,
+        },
+    }],
 });
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

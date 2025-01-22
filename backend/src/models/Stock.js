@@ -31,9 +31,10 @@ const stockSchema = new mongoose.Schema({
     type: Number,
     default: 0, // Capitalización bursátil
   },
-  dividendYield: {
-    type: Number, // Rendimiento por dividendo en porcentaje
-    default: null, // Puede no ser aplicable
+  availableShares: {
+    type: Number,
+    default: 10000, // Cuántas acciones están disponibles para comprar
+    min: [0, 'La cantidad de acciones disponibles no puede ser negativa'],
   },
 });
 

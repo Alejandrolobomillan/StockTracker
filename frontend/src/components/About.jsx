@@ -12,30 +12,30 @@ const About = () => {
                 <img src="/logodentro.jpg" alt="Logo" className="navbar-logo" />
             </div>
             <ul className="navbar-links">
-                <li onClick={() => navigate('/start')}>Com Iniciar</li>
-                <li onClick={() => navigate('/features')}>Característiques</li>
-                <li onClick={() => navigate('/about')}>Sobre Nosaltres</li>
+                <li onClick={() => navigate('/start')}>Cómo Iniciar</li>
+                <li onClick={() => navigate('/features')}>Características</li>
+                <li onClick={() => navigate('/about')}>Sobre Nosotros</li>
             </ul>
         </nav>
 
         <section className="about-section">
-            <h1>Sobre Nosaltres</h1>
+            <h1>Sobre Nosotros</h1>
             <div className="about-container">
                 <div className="about-item">
-                    <h2>Qui Som?</h2>
-                    <p>Som una empresa dedicada a proporcionar eines eficients per gestionar i monitoritzar els teus estocs de manera fàcil i intuïtiva.</p>
+                    <h2>¿Quiénes Somos?</h2>
+                    <p>Somos una empresa dedicada a proporcionar herramientas eficientes para gestionar y monitorear tus acciones de manera fácil e intuitiva.</p>
                 </div>
                 <div className="about-item">
-                    <h2>La nostra Missió</h2>
-                    <p>La nostra missió és ajudar a les empreses a prendre decisions més informades sobre els seus estocs i inversions mitjançant el nostre sistema de seguiment en temps real.</p>
+                    <h2>Nuestra Misión</h2>
+                    <p>Nuestra misión es ayudar a las empresas a tomar decisiones más informadas sobre sus acciones e inversiones mediante nuestro sistema de seguimiento en tiempo real.</p>
                 </div>
                 <div className="about-item">
-                    <h2>Visió</h2>
-                    <p>Volem ser la plataforma número 1 per al seguiment de l'evolució dels estocs, aportant transparència i eficàcia al mercat financer global.</p>
+                    <h2>Visión</h2>
+                    <p>Queremos ser la plataforma número 1 para el seguimiento de la evolución de las acciones, aportando transparencia y eficacia al mercado financiero global.</p>
                 </div>
                 <div className="about-item">
-                    <h2>Els nostres Valors</h2>
-                    <p>Innovació, transparència, i compromís amb la qualitat són els pilars sobre els quals construïm els nostres serveis.</p>
+                    <h2>Nuestros Valores</h2>
+                    <p>Innovación, transparencia y compromiso con la calidad son los pilares sobre los cuales construimos nuestros servicios.</p>
                 </div>
             </div>
         </section>

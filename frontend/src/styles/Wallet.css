@@ -1,0 +1,151 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+    color: white;
+}
+
+.navbardins {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    padding: 0.8rem 2rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar-logo {
+    height: 50px;
+    margin-right: 0.5rem;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s ease;
+    color: white;
+}
+
+.navbar-links li:hover {
+    color: #777777;
+    transform: translateY(-2px);
+}
+
+.wallet-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wallet-balance {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #78aee7;
+    font-weight: bold;
+}
+
+.wallet-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #333333;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.wallet-table thead {
+    background-color: #444444;
+}
+
+.wallet-table th,
+.wallet-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #555555;
+    font-size: 0.9rem;
+}
+
+.wallet-table th {
+    font-weight: bold;
+    color: white;
+}
+
+.wallet-table td {
+    color: white;
+}
+
+.wallet-table td:nth-child(4),
+.wallet-table td:nth-child(5) {
+    color: #78aee7;
+    font-weight: bold;
+}
+
+.wallet-table tr:hover {
+    background-color: #3c3c3c;
+    transition: background-color 0.3s ease;
+}
+
+.wallet-container p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #bbbbbb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wallet-container {
+        padding: 15px;
+    }
+
+    .wallet-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .wallet-balance {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wallet-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .wallet-balance {
+        font-size: 1rem;
+    }
+
+    .wallet-table th,
+    .wallet-table td {
+        font-size: 0.8rem;
+    }
+}

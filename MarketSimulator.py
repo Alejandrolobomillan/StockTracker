@@ -45,7 +45,7 @@ def update_stock_prices():
 def main():
     while True:
         update_stock_prices()
-        time.sleep(3)  # Esperar 30 segundos
+        time.sleep(10)  # Esperar 30 segundos
 
 if __name__ == "__main__":
     main()
