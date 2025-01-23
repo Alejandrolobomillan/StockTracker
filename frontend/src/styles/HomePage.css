@@ -188,22 +188,69 @@ body {
     .navbar-links {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0.5rem; /* Reduce espacio entre links */
+    }
+
+    .navbar-links li {
+        margin-right: 0; 
+    }
+
+    .background-title {
+        font-size: 2.5rem; 
+        line-height: 1.4; 
+        bottom: 15%; 
+        left: 5%; 
+    }
+
+    .text-container, .text-container2 {
+        padding: 5%; 
+        text-align: center; 
+    }
+
+    .text-container h2, 
+    .text-container2 h2 {
+        font-size: 1.8rem; 
+        margin-bottom: 1rem;
+    }
+
+    .text-container p, 
+    .text-container2 p, 
+    .text-container2 li p {
+        font-size: 1rem; 
+        line-height: 1.5;
+    }
+
+    .text-container2 li strong {
+        font-size: 1.2rem; 
+    }
+
+    .homepage-buttons {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .homepage-buttons button {
+        width: 80%; 
+        margin-bottom: 1rem;
+        font-size: 0.9rem; 
     }
 
     .content1, .content2 {
         flex-direction: column;
-        text-align: center;
+        padding: 5%; 
     }
 
-    .homepage-buttons button {
-        margin-bottom: 1rem;
+    .image1 {
+        padding: 5%; 
     }
 
-    .background-title {
-        font-size: 3rem;
+    .titol_container img {
+        width: 90%; 
+        max-height: 300px; 
     }
 
-    .text-container h2 {
-        font-size: 1.5rem;
+    .footer {
+        padding: 1rem;
+        font-size: 0.9rem; 
     }
 }
