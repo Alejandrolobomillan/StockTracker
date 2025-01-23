@@ -17,7 +17,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-        fetchStocks(); // Llamada inicial
+        fetchStocks(); 
         const interval = setInterval(fetchStocks, 10000); 
         return () => clearInterval(interval); 
     }, []);
